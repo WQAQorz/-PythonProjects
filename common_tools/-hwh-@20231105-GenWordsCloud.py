@@ -3,7 +3,7 @@ import os
 import jieba
 import matplotlib.pyplot as plt
 
-target_file = r"C:\Users\Administrator\Desktop\小米云日记.txt"
+target_file = os.path.join(os.getcwd(), "words.csv")
 text = ""
 if os.path.isfile(target_file):
     with open(target_file, encoding="utf-8") as f:
@@ -22,7 +22,7 @@ if text:
         if key in exclude_words:
             continue
 
-        if len(key) < 2:
+        if len(key) < 3:
             continue
 
         my_dict[key] = my_dict.get(key, 0) + 1
